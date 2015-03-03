@@ -4,14 +4,18 @@
 	<meta charset="UTF-8">
 	<title>Multiplication Table</title>
 </head>
-<body ng-controller="MultiplicationCtrl">
+<body>
+	<div ng-controller="MultiplicationCtrl" initial-number-limit="10">
+		<input type="number" ng-model="numberLimit" placeholder="Enter a number" />
    <table>
-     <tr ng-repeat="numberA in numbers">
-       <td ng-repeat="numberB in numbers">
-         {{numberA * numberB}}
+     <tr ng-repeat="numberA in numbers()">
+       <td ng-repeat="numberB in numbers()">
+         {{ compute(numberA,numberB) }}
        </td>
      </tr>
    </table>
+  </div>
+  <script src="angular.min.js"></script>
 	<script src="app.js"></script>
 </body>
 </html>
